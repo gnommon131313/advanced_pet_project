@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # При создании контейнера он помещаеться в некий namespace который имеет название дериктории в которой находиться сам этот файл (docker compose), это можно наглядно увидеть в docker desctop
+  database:
+    image: postgres:latest
+    container_name: catalog_db
+    env_file: '.\.env'
+    # Не обязательно вручную задавать окружение, если переменные назвать как требует образ то загруженные из файла .env будут уже считатся и их не нужно считывать повторно, главное точно назвать
+    # `docker compose -f docker-compose.db.yaml config` - посмотреть как будет собран контейнер
+    # Тут хз но окружение почему-то не может быть считано
+    # environment:
+    #   POSTGRES_USER: ${VAR_USER}
+    #   POSTGRES_PASSWORD: ${VAR_PASSWORD}
+    #   POSTGRES_DB: ${VAR_DB}
+    ports:
+      # !!! тут нужно на порт хоста замапить порт контейнера на котором работает postgress (этот порт в контейнере по дефолту 5432) а порт хоста может быть любой свободный
+      - '5432:5432' 
+    networks:
+      # default значить использовать сеть хосте а не свою собственную, тут значит что host = localhost
+      - default    
+    volumes:
+      - db:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  db: {}
+
+networks:
+  default:
+    external: false

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Интернет-магазин</title>
+ 
+  <!-- Подключение Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Подключение иконка сайта (это не обязательно т.к. @app.get("/favicon.ico") и так сработает, но это рекомендация) -->
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+ 
+  <style>
+    body {
+      margin: 20px;
+    }
+    table {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Подключение библиотеки Telegram Web App (нужно не только в рабочем html скрипте, но и обязательно в главном index.html)-->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</body>
+<body>
+
+<!-- Навигация -->
+{% include 'nav.html' %}
