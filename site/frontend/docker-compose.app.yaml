@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  service:
+    build:
+      context: ./app
+      dockerfile: ../dockerfile.app
+    container_name: frontend
+    ports:
+      - '8099:8099'  
+    command:
+      - python
+      - main.py
+    env_file: '.\.env'
+    restart: always
+    networks:
+      - default 
+
+networks:
+  default:
+    external: false

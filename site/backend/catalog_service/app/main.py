@@ -1,5 +1,5 @@
 import uvicorn, os
-from modules.fast_api.app import app
+from modules.api.app import app
 from modules.utils.logger import logger
 
 
