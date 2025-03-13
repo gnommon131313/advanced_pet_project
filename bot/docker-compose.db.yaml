@@ -4,17 +4,17 @@ services:
   database:
     image: postgres:latest
     container_name: user_db
-    env_file: '.\.env'
+    env_file: './.env'
     ports:
       - '5433:5432' 
     networks:
       - default    
     volumes:
-      - user_db:/var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
     restart: always
 
 volumes:
-  user_db: {}
+  db: {}
 
 networks:
   default:

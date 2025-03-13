@@ -11,7 +11,7 @@ services:
     command:
       - python
       - main.py
-    env_file: '.\.env'
+    env_file: './.env'
     restart: always
     networks:
       - default 
